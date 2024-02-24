@@ -25,7 +25,7 @@ public class OrderProducer {
     }
 
     public void sendMessage(OrderEvent orderEvent) {
-        LOGGER.info(String.format("Order event sent to RabbitMQ -> %s"), orderEvent);
+        LOGGER.info(String.format("Order event sent to RabbitMQ -> %s", orderEvent.toString()));
         rabbitTemplate.convertAndSend(orderExchange, orderRoutingKey, orderEvent);
     }
 }
